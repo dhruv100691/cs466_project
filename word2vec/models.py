@@ -31,7 +31,7 @@ Description:
 '''
 def generate_corpusfile(corpus_fname, n, out):
     f = open(out, "w")
-    with gzip.open(corpus_fname, 'rb') as fasta_file:
+    with gzip.open(corpus_fname, 'rt') as fasta_file:
         for r in SeqIO.parse(fasta_file, "fasta"):
             ngram_patterns = split_ngrams(r.seq, n)
             for ngram_pattern in ngram_patterns:
@@ -99,7 +99,7 @@ class ProtVec(word2vec.Word2Vec):
 
 
         protvec = np.zeros(self.size, dtype=np.float32)
-        for index in xrange(len(seq) + 1 - self.n):
+        for index in range(len(seq) + 1 - self.n):
             ngram = seq[index:index + self.n]
             if ngram in ngram_vectors:
                 ngram_vector = ngram_vectors[ngram]
@@ -114,6 +114,6 @@ class ProtVec(word2vec.Word2Vec):
                 line_parts = line.rstrip().split()   
                 # skip first line with metadata in word2vec text file format
                 if len(line_parts) > 2:     
-                    ngram, vector_values = line_parts[0], line_parts[1:]          
-                    ngram_vectors[ngram] = np.array(map(float, vector_values), dtype=np.float32)
+                    ngram, vector_values = line_parts[0], line_parts[1:]
+                    ngram_vectors[ngram] = np.array(list(map(float, vector_values)), dtype=np.float32)
         return ngram_vectors
