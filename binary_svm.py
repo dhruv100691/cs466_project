@@ -21,11 +21,11 @@ FG_NUPS = np.column_stack((FG_NUPS , len(FG_NUPS)*[1]))
 dataset = np.vstack((PDB,FG_NUPS))
 
 X = dataset[:, [0, 1]]
-print X
+print (X)
 y = dataset[:, 2]
-print y
+print (y)
 
-print dataset
+print (dataset)
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.cross_validation import train_test_split

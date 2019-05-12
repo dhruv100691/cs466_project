@@ -8,7 +8,7 @@ import biovisual.bio_visual as bv
 import word2vec 
 print ("PS(protrin space) , BSVM(binay svm) , DM(density map)")
 #str = raw_input()
-str="PS"
+str="DM"
 
 # make protein 100D-vec to 2D-vec
 def protein_tsne(dataset_2D , dataset_vec):

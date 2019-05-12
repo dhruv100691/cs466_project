@@ -25,7 +25,7 @@ class BioTsne:
         with open(path) as protein_vector:
             for line in protein_vector:
                 uniprot_id, vector = line.rstrip().split('\t', 1)
-                vectors_float.append(map(float, vector.split()))
+                vectors_float.append(list(map(float, vector.split())))
 
         vectors_array = np.array(vectors_float,ndmin=2,dtype=np.float32)
         vectors_float = None

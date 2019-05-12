@@ -8,6 +8,7 @@ ngram_corpus.txt
 *.pyc
 /trained_models
 /trained_models_copy
+/processed_data
 /.pytest_cache
 .env
 /trained_models1

@@ -7,22 +7,22 @@ class BioVisual():
     def visual_vec(self,dis_disprot , disprot ,dis_fg_nups , fg_nups , pdb1 , pdb2):
         
         # load 2D vectors
-        with open(dis_disprot, "r") as f:
+        with open(dis_disprot, "rb") as f:
             dis_disprot_vec = pickle.load(f)
         f.close()
-        with open(disprot, "r") as f:
+        with open(disprot, "rb") as f:
             disprot_vec = pickle.load(f)
         f.close()
-        with open(dis_fg_nups, "r") as f:
+        with open(dis_fg_nups, "rb") as f:
             dis_fg_nups_vec = pickle.load(f)
         f.close()
-        with open(fg_nups, "r") as f:
+        with open(fg_nups, "rb") as f:
             fg_nups_vec = pickle.load(f)
         f.close()
-        with open(pdb1, "r") as f:
+        with open(pdb1, "rb") as f:
             pdb1_vec = pickle.load(f)
         f.close()
-        with open(pdb2, "r") as f:
+        with open(pdb2, "rb") as f:
             pdb2_vec = pickle.load(f)
         f.close()
         
