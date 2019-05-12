@@ -13,13 +13,13 @@ import os
 
 class BioTsne:
     def __init__(self):
-        print 'TSNE is running..'
+        print ('TSNE is running..')
 
 
     # create array
     def csv_to_array(self,path):
         #protein csv parsing
-        print "Loading protvec"
+        print ("Loading protvec")
 
         vectors_float = []
         with open(path) as protein_vector:
@@ -31,23 +31,23 @@ class BioTsne:
         vectors_float = None
         vectors_array=np.nan_to_num(vectors_array)
         
-        print vectors_array
-        print "... OK\n"
+        print (vectors_array)
+        print ("... OK\n")
 
         return vectors_array
         
     # making tsne
     def make_tsne(self,file_path,vectors_array):
         # make tsne 
-        print "Making tsne"
+        print ("Making tsne")
         tsne = TSNE(n_components=2)
         X_tsne = tsne.fit_transform(vectors_array)
-        print "... OK\n"
+        print ("... OK\n")
 
-        print "Saving tsne"
+        print ("Saving tsne")
         # save X_tsne
         
         f = open(file_path,"wb")
         pickle.dump(X_tsne , f)
         f.close()
-        print "... OK\n"
+        print( "... OK\n")

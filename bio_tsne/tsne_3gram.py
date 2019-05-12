@@ -12,7 +12,7 @@ import os
 
 class BioTsne:
     def __init__(self):
-        print 'TSNE is running..'
+        print ('TSNE is running..')
 
     # making tsne
     def make_tsne(self, model):
@@ -31,7 +31,7 @@ class BioTsne:
 
     def density_tsne(self , file_path , model):
         if not os.path.isfile(file_path):
-            print model
+            print (model)
             # make tsne
             X = model[model.wv.vocab]
             tsne = TSNE(n_components=2)
@@ -44,7 +44,7 @@ class BioTsne:
             f.close()
 
     def link_with_vector(self, vectors, property_list):
-        print np.append(vectors , property_list,axis=1)
+        print (np.append(vectors , property_list,axis=1))
         return np.append(vectors , property_list,axis=1)
 
     def visualization(self, X_tsne):

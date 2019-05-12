@@ -6,8 +6,9 @@ import os
 import numpy as np
 import biovisual.bio_visual as bv
 import word2vec 
-print "PS(protrin space) , BSVM(binay svm) , DM(density map)"
-str = raw_input()
+print ("PS(protrin space) , BSVM(binay svm) , DM(density map)")
+#str = raw_input()
+str="PS"
 
 # make protein 100D-vec to 2D-vec
 def protein_tsne(dataset_2D , dataset_vec):
@@ -17,12 +18,12 @@ def protein_tsne(dataset_2D , dataset_vec):
 
 if "PS"==str:
     
-    print "Loading 3gram vector"
+    print ("Loading 3gram vector")
     model_3gram = "./trained_models/ngram_model"
     model = word2vec.models.load_protvec(model_3gram)
-    print "... Ok\n"
+    print ("... Ok\n")
 
-    print "Making tsne"
+    print ("Making tsne")
     tsne = t3.BioTsne()
     labels = model.wv.vocab.keys()
     #print labels
@@ -31,9 +32,9 @@ if "PS"==str:
     f = open("./trained_models/ngram_2D_vector","rb")
     vectors = pickle.load(f)
     final_embedding = tsne.link_with_vector(vectors, property_list)
-    print "... OK\n"
+    print ("... OK\n")
 
-    print "Visualization"
+    print( "Visualization")
     tsne.visualization(final_embedding)
 
 elif "BSVM"==str:
@@ -44,7 +45,7 @@ elif "BSVM"==str:
     dataset_vec = "./trained_models/SVM_dataset/SVM_dataset_protein.csv" 
     if not os.path.isfile(dataset_2D):
         dataset_vectors = tsne.csv_to_array(dataset_vec)
-        print len(dataset_vectors)
+        print (len(dataset_vectors))
         tsne.make_tsne(dataset_2D ,dataset_vectors) 
 
 elif "DM"==str:
